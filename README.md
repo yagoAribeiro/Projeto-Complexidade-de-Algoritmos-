@@ -18,11 +18,11 @@ O básico de Git que você deverá saber:
 
 <h2>Definições importantes</h2>
 
-**Branch** - Do português "ramo" é um ramo de trabalho, é o local em que cada integrante irá trabalhar. Para toda unidade de trabalho nova, deve-se criar uma branch, caso não exista uma.
+**Branch** - Do inglês "ramo" é um ramo de trabalho, é o local em que cada integrante irá trabalhar. Para toda unidade de trabalho nova, deve-se criar uma branch, caso não exista uma.
 
-**Pull** - Do português "puxar" é a ação de obter as últimas atualizações de uma branch, caso haja alguma. (Como se estivesse atualizando um aplicativo).
+**Pull** - Do inglês "puxar" é a ação de obter as últimas atualizações de uma branch, caso haja alguma. (Como se estivesse atualizando um aplicativo).
 
-**Push** - Do português "empurrar" é a ação de enviar as atualizações locais para uma branch. (Como se estivesse criando uma atualização).
+**Push** - Do inglês "empurrar" é a ação de enviar as atualizações locais para uma branch. (Como se estivesse criando uma atualização).
 
 São os termos que mais irão encontrar.
 
