@@ -71,7 +71,7 @@ Aproveitando: **NÃO ALTERE A BRANCH MAIN EM NENHUMA CIRCUNSTÂNCIA.** Inclusive
 
 <h2>Terminando o trabalho</h2>
 
-"Terminei as alterações, e agora?"
+"Quero salvar as alterações, e agora?"
 - Faça o comando "git add ." para adicionar todos os arquivos em um novo commit.
 - Faça "git commit -m *mensagem-do-commit*", similar à branch, evite nomes muito longos e descreva exatamente a alteração que você fez.
 
