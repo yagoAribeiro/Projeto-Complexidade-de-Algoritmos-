@@ -66,7 +66,7 @@ Extensão de git do VsCode também seria interessante, mas opcional, caso vão u
 
 - Por fim, selecione a branch nova que acabou de criar, usando aquele comando do *git checkout* mostrado anteriormente. Agora você está pronto para fazer o que seu coração mandar.
 
-**- ERRO COMUM DE DEV. CERTIFIQUE-SE DE QUE VOCÊ ESTÁ FAZENDO ALTERAÇÕES NA BRANCH CERTA, POIS MIGRAS AS ALTERAÇÕES PODE SER UMA DOR DE CABEÇA. E corre-se o risco de perder seu trabalho.**
+**- ERRO COMUM DE DEV. CERTIFIQUE-SE DE QUE VOCÊ ESTÁ FAZENDO ALTERAÇÕES NA BRANCH CERTA, POIS MIGRAR AS ALTERAÇÕES PODE SER UMA DOR DE CABEÇA. E corre-se o risco de perder seu trabalho.**
 
 Aproveitando: **NÃO ALTERE A BRANCH MAIN EM NENHUMA CIRCUNSTÂNCIA.** Inclusive, vou colocar uma proibição para que não seja permitido de qualquer forma, para evitar acidentes.
 
