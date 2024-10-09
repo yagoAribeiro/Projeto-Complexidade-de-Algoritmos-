@@ -44,6 +44,7 @@ Extensão de git do VsCode também seria interessante, mas opcional, caso vão u
 - Para saber se foi tudo certinho, cheque se os arquivos na sua pasta são exatamente os mesmos da branch. Caso sejam, a configuração está completa.
 
 <h2>Começando o trabalho</h2>
+
 "E agora?"
 - Primeiramente, sempre que for criar uma branch nova, atualize a branch *main*, para apurar atualizações importantes.
 
@@ -67,3 +68,20 @@ Extensão de git do VsCode também seria interessante, mas opcional, caso vão u
 **- ERRO COMUM DE DEV. CERTIFIQUE-SE DE QUE VOCÊ ESTÁ FAZENDO ALTERAÇÕES NA BRANCH CERTA, POIS MIGRAS AS ALTERAÇÕES PODE SER UMA DOR DE CABEÇA. E corre-se o risco de perder seu trabalho.**
 
 Aproveitando: **NÃO ALTERE A BRANCH MAIN EM NENHUMA CIRCUNSTÂNCIA.** Inclusive, vou colocar uma proibição para que não seja permitido de qualquer forma, para evitar acidentes.
+
+<h2>Terminando o trabalho</h2>
+
+"Terminei as alterações, e agora?"
+- Faça o comando "git add ." para adicionar todos os arquivos em um novo commit.
+- Faça "git commit -m *mensagem-do-commit*", similar à branch, evite nomes muito longos e descreva exatamente a alteração que você fez.
+
+**Nota, você pode e deve fazer quantos commits quiser! Pense que é o botão "salvar" de um jogo. Sempre que fizer uma alteração que considere importante, faça esses dois comandos!**
+
+- Por fim, faça git push. Caso seja seu primeiro push, ele irá falhar e o git vai falar que não há branch remota correspondete, e vai te dar um comando para isso. Caso não dê o comando, faça "git push --set-upstream origin *nome-da-sua-branch*" **IMPORTANTE! CERTIFIQUE-SE DE QUE A BRANCH REMOTA TENHA O MESMO NOME DA LOCAL, PRA EVITAR CONFUSÃO**.
+
+- Após finalizar, verifique o site do github, neste repositório, e veja se sua branch apareceu e seus arquivos ali.
+
+<h3>Finalizei a tarefa!</h3>
+
+- Após finalizar tudo e tudo, você vai ir no site e vai criar uma **PULL REQUEST**. *"O que é uma pull request?"*: É basicamente um pedido para mesclar a sua branch com outra, como se você encaixar uma peça no quebra cabeça.
+- Crie ela com um nome descritivo e coloque para mesclar na branch **main**. A partir daí, eu poderei verificar o código e ver se está apto.
