@@ -2,6 +2,7 @@
 Projeto em grupo da disciplina de Complexidade de Algoritmos, do curso de ciência da computação.
 
 Integrantes:
+
 Yago Amâncio Ribeiro.
 Juan Carlos Barbosa.
 Leandro Oliveira
