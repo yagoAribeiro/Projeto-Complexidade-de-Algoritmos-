@@ -45,5 +45,25 @@ Extensão de git do VsCode também seria interessante, mas opcional, caso vão u
 
 <h2>Começando o trabalho</h2>
 "E agora?"
-- Primeiramente, sempre que for criar um ramo novo, atualize sua branch principal, caso tenha atualizações importantes
-Crie uma branch com um nome descritivo de o que você irá fazer, não faça nomes muito longos.
+- Primeiramente, sempre que for criar uma branch nova, atualize a branch *main*, para apurar atualizações importantes.
+
+"Como vejo se estou na branch correta?"
+- Na janela de comando, use "git branch" para listar as branches na sua pasta. Dependendo da IDE, a branch selecionada vai ter uma cor diferente ou asterisco.
+  
+"Como seleciono a branch?" 
+- Use "git checkout *nome-branch*". Cuidado, isso irá mudar os arquivos da sua pasta, dependendo, o git irá pedir para você fazer alguns comandos, e então você segue.
+
+"A branch que eu quero não está aparecendo com git branch!"
+- Vá até a página deste repositório e procure a branch que você quer, copie o nome e dê *git checkout* no nome dela. Ele irá copiar do remoto.
+
+**- Suas branches da pasta são locais e não atualizam sozinhas! Sempre que der um checkout, faça "git pull", para atualizar sua branch.**
+
+- Selecione a branch **main** e faça *pull*, antes de criar uma nova.
+
+- Crie uma branch com um nome descritivo de o que você irá fazer, não faça nomes muito longos. Use "git branch *nome-branch-nova*" para criar uma nova baseada na selecionada.
+
+- Por fim, selecione a branch nova que acabou de criar, usando aquele comando do *git checkout* mostrado anteriormente. Agora você está pronto para fazer o que seu coração mandar.
+
+**- ERRO COMUM DE DEV. CERTIFIQUE-SE DE QUE VOCÊ ESTÁ FAZENDO ALTERAÇÕES NA BRANCH CERTA, POIS MIGRAS AS ALTERAÇÕES PODE SER UMA DOR DE CABEÇA. E corre-se o risco de perder seu trabalho.**
+
+Aproveitando: **NÃO ALTERE A BRANCH MAIN EM NENHUMA CIRCUNSTÂNCIA.** Inclusive, vou colocar uma proibição para que não seja permitido de qualquer forma, para evitar acidentes.
