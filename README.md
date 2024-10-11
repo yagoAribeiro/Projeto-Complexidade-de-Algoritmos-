@@ -82,7 +82,7 @@ Aproveitando: **NÃO ALTERE A BRANCH MAIN EM NENHUMA CIRCUNSTÂNCIA.** Inclusive
 
 - Após finalizar, verifique o site do github, neste repositório, e veja se sua branch apareceu e seus arquivos ali.
 
-<h3>Finalizei a tarefa!</h3>
+<h3>Mesclando o trabalho final</h3>
 
-- Após finalizar tudo e tudo, você vai ir no site e vai criar uma **PULL REQUEST**. *"O que é uma pull request?"*: É basicamente um pedido para mesclar a sua branch com outra, como se você encaixar uma peça no quebra cabeça.
+- Após finalizar tudo de sua parte, você vai ir na página desse repositório e vai criar uma **PULL REQUEST** da sua branch. *"O que é uma pull request?"*: É basicamente um pedido para mesclar a sua branch com outra, como se você fosse encaixar uma peça no quebra cabeça.
 - Crie ela com um nome descritivo e coloque para mesclar na branch **main**. A partir daí, eu poderei verificar o código e ver se está apto.
