@@ -3,7 +3,7 @@ import matplotlib.pyplot as plt
 import random
 import time
 from algorithms.search import search_base, busca_binaria as bn, busca_largura as bla, busca_linear as bli, busca_profundidade as bf
-from algorithms.sort import sort_base, bubble_sort as bs, insertion_sort as iso, merge_sort as ms, selection_sort as ss
+from algorithms.sort import sort_base, bubble_sort as bs, insertion_sort as iso, merge_sort as ms, selection_sort as ss, quick_sort as qs
 #Borabill
 def run(instance):
     print("\n1 - Iterativa\n2 - Recursiva")
@@ -59,6 +59,8 @@ def getWorstCaseSort(instance, arr = []): ##Pior caso de ordenação depende do 
         pass
     elif (type(instance) is ss.SelectionSort): ##Complexidade de tempo similar para todos os casos
         pass
+    elif (type(instance) is qs.QuickSort):##(COM MEDIANA) Complexidade de tempo similar para todos os casos
+        pass
     return arr
             
 def plotGraph(instance, vetx, vety):
@@ -90,7 +92,8 @@ class_instances = [
     bs.BubbleSort(),
     iso.InsertionSort(),
     ms.MergeSort(),
-    ss.SelectionSort() 
+    ss.SelectionSort(),
+    qs.QuickSort() 
     ]
 
 while(True):
