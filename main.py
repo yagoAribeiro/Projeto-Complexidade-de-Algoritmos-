@@ -7,18 +7,13 @@ from algorithms.sort import sort_base, bubble_sort as bs, insertion_sort as iso,
 #Borabill
 def run(instance):
     print("\n1 - Iterativa\n2 - Recursiva")
-    entrada = input("Selecione o número da abordagem ou qualquer outro para voltar: ")
-    match(int(entrada)):
-        case 1:
+    entrada = int(input("Selecione o número da abordagem ou qualquer outro para voltar: "))
+    match(entrada):
+        case 1 | 2:
             if (isinstance(instance, search_base.PlotableSearch)):
-                runSearch(instance, instance.iterativeSearch)
+                runSearch(instance, instance.iterativeSearch if entrada == 1 else instance.recursiveSearch)
             elif (isinstance(instance, sort_base.PlotableSort)):
-                instance.iterativeSort()
-        case 2:
-            if (isinstance(instance, search_base.PlotableSearch)):
-                instance.recursiveSearch()
-            elif (isinstance(instance, sort_base.PlotableSort)):
-                instance.recursiveSort()
+                runSort(instance, instance.iterativeSort if entrada == 1 else instance.recursiveSort)
         case _:
             pass
 
@@ -36,20 +31,54 @@ def runSearch(instance = search_base.PlotableSearch, searchFunc = any):
     ##Deleta o primeiro ponto, pois aparentemente ele dá um pico ao carregar uma classe pela primeira vez
     del n_values[0]
     del t_values[0]
-    plt.plot(n_values, t_values, '--bo')
-    plt.xlabel("Entrada (n)")
-    plt.ylabel("Tempo (ms)")
-    plt.title("Algoritmo: "+instance.toString()+" (Pior caso)")
-    plt.grid(True)
-    plt.show()
+    plotGraph(instance, n_values, t_values)
+
+def runSort(instance = sort_base.PlotableSort, sortFunc = any):
+    n_values = [25, 50, 100, 200, 300, 400, 500, 700, 1000]
+    t_values = []
+    for i in range(len(n_values)):
+        arr = getData(n_values[i])
+        arr = getWorstCaseSort(instance, arr)
+        i_time = time.perf_counter()
+        sortFunc(arr) ##A única linha que importa
+        f_time = time.perf_counter()
+        d_time = 1000*(f_time-i_time)
+        t_values.append(d_time)
+    ##Deleta o primeiro ponto, pois aparentemente ele dá um pico ao carregar uma classe pela primeira vez
+    del n_values[0]
+    del t_values[0]
+    plotGraph(instance, n_values, t_values)
 
 def getWorstCaseSearch(arr): return min(arr)-1 ##Pior caso de buscas é a busca por um elemento x não pertencente ao conjunto.
+def getWorstCaseSort(instance, arr = []): ##Pior caso de ordenação depende do algoritmo
+    if (type(instance) is bs.BubbleSort):
+        arr.sort(reverse=True)
+    elif (type(instance) is iso.InsertionSort):
+        arr.sort(reverse=True)
+    elif (type(instance) is ms.MergeSort): ##Complexidade de tempo similar para todos os casos
+        pass
+    elif (type(instance) is ss.SelectionSort): ##Complexidade de tempo similar para todos os casos
+        pass
+    return arr
+            
+def plotGraph(instance, vetx, vety):
+    if (isinstance(instance, search_base.PlotableSearch) or isinstance(instance, sort_base.PlotableSort)):
+        plt.plot(vetx, vety, '--bo')
+        plt.xlabel("Entrada (n)")
+        plt.ylabel("Tempo (ms)")
+        plt.title("Algoritmo: "+instance.toString()+" (Pior caso)")
+        plt.grid(True)
+        plt.show()
     
 def getData(amount):
     arr = []
     for i in range(amount):
         arr.append(random.randint(-10000, 10000))
     return arr
+
+
+
+##Runnable
 
 entrada = any
 
