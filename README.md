@@ -42,7 +42,11 @@ Extensão de git do VsCode também seria interessante, mas opcional, caso vão u
 
 - Caso não tenha feito, o VsCode (Ou outra IDE) vai pedir em algum momento para você se logar na sua conta.
 
-- Para saber se foi tudo certinho, cheque se os arquivos na sua pasta são exatamente os mesmos da branch. Caso sejam, a configuração está completa.
+- Para saber se foi tudo certinho, cheque se os arquivos na sua pasta são exatamente os mesmos da branch.
+
+- Após isso, garanta que o python 3.12 ou superior está instalado. Abra um prompt da sua IDE ou cmd do windows e vá até a raíz do projeto, crie uma virtual env com o comando: *python -m venv .windows_env*. 
+- Então, ative o env com o comando: ".\.windows_env\Scripts\activate". Ou vá até a pasta .windows_env\Scripts e execute o arquivo "activate.bat"
+- Por fim, instale as dependências do projeto com: *pip install -r requirements.txt*
 
 <h2>Começando o trabalho</h2>
 
