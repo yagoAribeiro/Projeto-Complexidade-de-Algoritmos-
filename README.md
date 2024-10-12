@@ -70,6 +70,9 @@ Extensão de git do VsCode também seria interessante, mas opcional, caso vão u
 
 Aproveitando: **NÃO ALTERE A BRANCH MAIN EM NENHUMA CIRCUNSTÂNCIA.** Inclusive, vou colocar uma proibição para que não seja permitido de qualquer forma, para evitar acidentes.
 
+<h2> Onde eu trabalho? </h2>
+- Vá até o respectivo arquivo e a respectiva classe que você irá implementar e sobrescreva os métodos que possuem "iterative" ou "recursive" no nome. Você pode fazer qualquer coisa com a classe desde que consiga implementar o algoritmo e desde que mantenha o uso daqueles métodos. Os métodos não precisam retornar nenhum valor.
+
 <h2>Terminando o trabalho</h2>
 
 "Quero salvar as alterações, e agora?"
