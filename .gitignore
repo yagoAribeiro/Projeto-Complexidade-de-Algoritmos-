@@ -1,3 +1,5 @@
+*/__pycache__
+*.pyc
 .windows_env
 .linux_env
 .vscode
