@@ -1,0 +1,8 @@
+Metadata-Version: 2.1
+Name: nump
+Version: 5.5.5.5
+Summary: A typo-squatting pypi package demonstration
+Author: Mathias Bochet (aka Zen)
+Requires-Dist: numpy
+
+This is an example of a harmless PyPI package that demonstrates possible typo-squatting. The package is intended for educational purposes only and will download the original requests package.
