@@ -1,12 +1,12 @@
 import numpy as np
-import sys
 import matplotlib.pyplot as plt
+import sys
 import random
 import time
 from algorithms.search import search_base, busca_binaria as bn, busca_largura as bla, busca_linear as bli, busca_profundidade as bf
 from algorithms.sort import sort_base, bubble_sort as bs, insertion_sort as iso, merge_sort as ms, selection_sort as ss, quick_sort as qs
-sys.setrecursionlimit(1500)
 #Borabill
+sys.setrecursionlimit(1500)
 def run(instance):
     print("\n1 - Iterativa\n2 - Recursiva")
     entrada = int(input("Selecione o número da abordagem ou qualquer outro para voltar: "))
