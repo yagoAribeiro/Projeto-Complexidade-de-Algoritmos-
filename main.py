@@ -5,6 +5,7 @@ import random
 import time
 from algorithms.search import search_base, busca_binaria as bn, busca_largura as bla, busca_linear as bli, busca_profundidade as bf
 from algorithms.sort import sort_base, bubble_sort as bs, insertion_sort as iso, merge_sort as ms, selection_sort as ss, quick_sort as qs
+from algorithms.tree import insertion, search, delete, tree_base as tb
 #Borabill
 sys.setrecursionlimit(1500)
 def run(instance):
@@ -16,8 +17,51 @@ def run(instance):
                 runSearch(instance, instance.iterativeSearch if entrada == 1 else instance.recursiveSearch)
             elif (isinstance(instance, sort_base.PlotableSort)):
                 runSort(instance, instance.iterativeSort if entrada == 1 else instance.recursiveSort)
+            else: runTree(instance, entrada == 1)
         case _:
             pass
+
+def runTree(instance = tb.PlotableTree, iterative = True):
+    n_values = [1, 25, 50, 100, 200, 300, 400, 500, 700, 1000]
+    t_values = []
+    for i in range(len(n_values)):
+        search_call = instance.iterativeSearch if iterative else instance.recursiveSearch
+        insert_call = instance.iterativeInsert if iterative else instance.recursiveInsert
+        delete_call = instance.iterativeDelete if iterative else instance.recursiveDelete
+        arr = getData(n_values[i])
+        if type(instance) is insertion.Insertion:
+            instance = insertion.Insertion()
+            arr.sort() ## Pior caso de inserção da árvore desbalanceada é inserir em ordem
+            i_time = time.perf_counter()
+            for value in arr: insert_call(value)
+            f_time = time.perf_counter()
+            d_time = 1000*(f_time-i_time)
+            t_values.append(d_time)
+        elif type(instance) is search.Search:
+            instance = search.Search()
+            arr.sort(reverse=True) ## Pior caso de busca da árvore desbalanceada é procurar em ordem até as folhas
+            for value in arr: insert_call(value)
+            x = getWorstCaseSearch(arr)
+            i_time = time.perf_counter()
+            search_call(x)
+            f_time = time.perf_counter()
+            d_time = 1000*(f_time-i_time)
+            t_values.append(d_time)
+        else:
+            instance = delete.Delete()
+            arr.sort(reverse=True) ## Pior caso de busca da árvore desbalanceada é procurar em ordem até as folhas
+            for value in arr: insert_call(value)
+            x = getWorstCaseSearch(arr)
+            i_time = time.perf_counter()
+            delete_call(x)
+            f_time = time.perf_counter()
+            d_time = 1000*(f_time-i_time)
+            t_values.append(d_time)    
+    ##Deleta o primeiro ponto, pois aparentemente ele dá um pico ao carregar uma classe pela primeira vez
+    del n_values[0]
+    del t_values[0]
+    plotGraph(instance, n_values, t_values, iterative)
+
 
 def runSearch(instance = search_base.PlotableSearch, searchFunc = any):
     n_values = [1, 25, 50, 100, 200, 300, 400, 500, 700, 1000]
@@ -66,7 +110,7 @@ def getWorstCaseSort(instance, arr = []): ##Pior caso de ordenação depende do 
     return arr
             
 def plotGraph(instance, vetx, vety, iterative = True):
-    if (isinstance(instance, search_base.PlotableSearch) or isinstance(instance, sort_base.PlotableSort)):
+    if (isinstance(instance, search_base.PlotableSearch) or isinstance(instance, sort_base.PlotableSort) or isinstance(instance, tb.PlotableTree)):
         plt.plot(vetx, vety, '--bo')
         plt.xlabel("Entrada (n)")
         plt.ylabel("Tempo (ms)")
@@ -95,13 +139,16 @@ class_instances = [
     iso.InsertionSort(),
     ms.MergeSort(),
     ss.SelectionSort(),
-    qs.QuickSort() 
+    qs.QuickSort(),
+    insertion.Insertion(),
+    delete.Delete(),
+    search.Search(),
     ]
 
 while(True):
     i = 0
     for class_ins in class_instances:
-        if (isinstance(class_ins, search_base.PlotableSearch) or isinstance(class_ins, sort_base.PlotableSort)):
+        if (isinstance(class_ins, search_base.PlotableSearch) or isinstance(class_ins, sort_base.PlotableSort) or isinstance(class_ins, tb.PlotableTree)):
             print(str(i+1)+" - "+str(class_ins.toString()))
         i+=1
     entrada = int(input("Selecione o número do algoritmo para executar ou qualquer outro para sair: "))
