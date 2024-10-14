@@ -33,7 +33,7 @@ def runSearch(instance = search_base.PlotableSearch, searchFunc = any):
     ##Deleta o primeiro ponto, pois aparentemente ele dá um pico ao carregar uma classe pela primeira vez
     del n_values[0]
     del t_values[0]
-    plotGraph(instance, n_values, t_values)
+    plotGraph(instance, n_values, t_values, searchFunc == instance.iterativeSearch)
 
 def runSort(instance = sort_base.PlotableSort, sortFunc = any):
     n_values = [25, 50, 100, 200, 300, 400, 500, 700, 1000]
@@ -49,7 +49,7 @@ def runSort(instance = sort_base.PlotableSort, sortFunc = any):
     ##Deleta o primeiro ponto, pois aparentemente ele dá um pico ao carregar uma classe pela primeira vez
     del n_values[0]
     del t_values[0]
-    plotGraph(instance, n_values, t_values)
+    plotGraph(instance, n_values, t_values, sortFunc == instance.iterativeSort)
 
 def getWorstCaseSearch(arr): return min(arr)-1 ##Pior caso de buscas é a busca por um elemento x não pertencente ao conjunto.
 def getWorstCaseSort(instance, arr = []): ##Pior caso de ordenação depende do algoritmo
@@ -65,12 +65,12 @@ def getWorstCaseSort(instance, arr = []): ##Pior caso de ordenação depende do 
         pass
     return arr
             
-def plotGraph(instance, vetx, vety):
+def plotGraph(instance, vetx, vety, iterative = True):
     if (isinstance(instance, search_base.PlotableSearch) or isinstance(instance, sort_base.PlotableSort)):
         plt.plot(vetx, vety, '--bo')
         plt.xlabel("Entrada (n)")
         plt.ylabel("Tempo (ms)")
-        plt.title("Algoritmo: "+instance.toString()+" (Pior caso)")
+        plt.title("Algoritmo: "+instance.toString()+(" Iterativo " if iterative else " Recursivo ")+"(Pior caso)")
         plt.grid(True)
         plt.show()
     
