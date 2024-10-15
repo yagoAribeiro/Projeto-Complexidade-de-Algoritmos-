@@ -67,8 +67,19 @@ def runSearch(instance = search_base.PlotableSearch, searchFunc = any):
     n_values = [1, 25, 50, 100, 200, 300, 400, 500, 700, 1000]
     t_values = []
     for i in range(len(n_values)):
-        arr = getData(n_values[i])
-        x = getWorstCaseSearch(arr)
+        arr = []
+        x = None
+        if (type(instance) is bf.BuscaProfundidade):
+            for j in range(n_values[i]):
+                neightbors = []
+                for l in range(random.randint(0, j)):
+                    random.seed()
+                    neightbors.append(random.randint(0, n_values[i]//10+1))
+                arr.append(neightbors)
+            x = -1
+        else: 
+            arr = getData(n_values[i])
+            x = getWorstCaseSearch(arr)
         i_time = time.perf_counter()
         searchFunc(x, arr) ##A única linha que importa
         f_time = time.perf_counter()
