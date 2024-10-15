@@ -6,30 +6,25 @@ class SelectionSort(PlotableSort):
 
     # Implementação da Selection Sort Iterativo
     def iterativeSort(self, data=[]):
-    n = len(arr)
-    
-    for i in range(n):
-        menor_idx = i
+        n = len(data)
+        for i in range(n):
+            menor_idx = i
+            for j in range(i + 1, n):
+                if data[j] < data[menor_idx]:
+                    menor_idx = j
         
-        for j in range(i + 1, n):
-            if arr[j] < arr[menor_idx]:
-                menor_idx = j
-        
-        arr[i], arr[menor_idx] = arr[menor_idx], arr[i]
+            data[i], data[menor_idx] = data[menor_idx], data[i]
 
     # Implementação da Selection Sort Recursivo
-    def recursiveSort(self, data=[]):
-    if i >= n - 1:
-        return
-    
-    menor_idx = i
-    for j in range(i + 1, n):
-        if arr[j] < arr[menor_idx]:
-            menor_idx = j
-
-    arr[i], arr[menor_idx] = arr[menor_idx], arr[i]
-    
-    selection_sort_recursivo(arr, n, i + 1)
+    def recursiveSort(self, data=[], index=0):
+        if index >= len(data) - 1:
+            return
+        min_index = index
+        for i in range(index + 1, len(data)):
+            if data[i] < data[min_index]:
+                min_index = i
+        data[index], data[min_index] = data[min_index], data[index]
+        self.recursiveSort(data, index + 1)
 
     def toString(self): 
         return "Método Selection Sort"
